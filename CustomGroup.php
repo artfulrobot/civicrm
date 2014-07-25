@@ -28,6 +28,13 @@ class CustomGroup
 	 */
 	public static function getDetails($group_name)
 	{
+        // use API to sign someone up
+        require_once 'sites/default/civicrm.settings.php';
+        require_once 'CRM/Core/Config.php';
+        require_once 'api/api.php';
+        $config = \CRM_Core_Config::singleton( );
+
+
 		$results = array();
 		$params = array('name'=>$group_name);
 		\CRM_Core_BAO_CustomGroup::retrieve( $params, $results );

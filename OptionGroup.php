@@ -38,7 +38,7 @@ class OptionGroup
         $result = civicrm_api('OptionValue', 'get', $params);
 
         if ($result['is_error'] || $result['count']!=1) {
-            throw new \Exception("OptionGroup '$group_name' not found");
+            throw new \Exception("OptionValue '$value_name' not found in group '$group_name'");
         }
         return $result['values'][0]['value'];
 	}

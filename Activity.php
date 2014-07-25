@@ -42,8 +42,12 @@ class Activity
         if ($result['is_error']) {
             throw new \Exception("Activity API error");
         }
-        $result = $result['values'][0];
-        $this->activity = $result;
+        if($result['count']) {
+          $result = $result['values'][0];
+          $this->activity = $result;
+        } else {
+          throw new \Exception("Activity not found");
+        }
     } // }}}
 
     public function __construct($activity_id=null)/*{{{*/
